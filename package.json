@@ -1,0 +1,29 @@
+{
+  "name": "angular-learn",
+  "version": "1.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "autoprefixer": "*",
+    "browser-sync": "*",
+    "gifsicle": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-imagemin": "*",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rigger": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-watch": "*",
+    "gulp.spritesmith": "*",
+    "imagemin-pngquant": "*",
+    "ngrok": "*",
+    "rigger": "*",
+    "rimraf": "*"
+  }
+}
