@@ -5,12 +5,13 @@
  * Date: 05.06.2017
  */
 
-var angularApp = angular.module('mailApp', [
+var mailApp = angular.module('mailApp', [
+    'ngResource',
     'ui.router',
     'ui.bootstrap'
 ]);
 
-angularApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+mailApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider
@@ -21,7 +22,7 @@ angularApp.config(function ($locationProvider, $stateProvider, $urlRouterProvide
             title: 'mailbox'
         })
         .state('mail', {
-            url: '/mail/{id:int}',
+            url: '/mail/:id',
             templateUrl: '/views/mail/index.html',
             controller: 'mailController',
             title: 'mail'

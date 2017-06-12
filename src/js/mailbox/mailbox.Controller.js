@@ -1,5 +1,3 @@
-angularApp.controller('mailboxController', function($scope, mailboxService) {
-    mailboxService.getMails().then(function (response) {
-        $scope.mails = response.data;
-    });
+mailApp.controller('mailboxController', function($scope, mailboxService) {
+    $scope.mails = mailboxService.query(function () {});
 });

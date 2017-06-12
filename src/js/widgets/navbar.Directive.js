@@ -5,7 +5,7 @@
  * Date: 05.06.2017
  */
 
-angularApp.directive('navbar', function () {
+mailApp.directive('navbar', function () {
     return {
         restrict: "E",
         replace: true,

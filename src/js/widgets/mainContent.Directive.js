@@ -5,8 +5,8 @@
  * Date: 05.06.2017
  */
 
-angularApp.directive('mainContent', function() {
-    var template = '/views/layouts/angularApp.html';
+mailApp.directive('mainContent', function() {
+    var template = '/views/layouts/mailApp.html';
 
     return {
         restrict: 'A',

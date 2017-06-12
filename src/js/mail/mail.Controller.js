@@ -5,6 +5,6 @@
  * Date: 05.06.2017
  */
 
-angularApp.controller('mailController', function($scope, mailboxService) {
-
+mailApp.controller('mailController', function($scope, mailboxService, $stateParams) {
+    $scope.mail = mailboxService.get({id: $stateParams.id});
 });

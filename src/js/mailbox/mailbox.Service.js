@@ -5,10 +5,6 @@
  * Date: 05.06.2017
  */
 
-angularApp.service("mailboxService", function ($http) {
-    return {
-        getMails: function () {
-            return $http.get("https://jsonplaceholder.typicode.com/posts");
-        }
-    }
+mailApp.service("mailboxService", function ($http, $resource) {
+    return $resource('https://jsonplaceholder.typicode.com/posts/:id');
 });
