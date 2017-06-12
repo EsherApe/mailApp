@@ -10,10 +10,11 @@ mailApp.directive('sidebar', function () {
         restrict: 'E',
         replace: true,
         templateUrl: '/views/widgets/sidebar.html',
-        controller: function ($scope) {
+        controller: function ($scope, mailboxService) {
             $scope.isNavCollapsed = true;
             $scope.isCollapsed = false;
             $scope.isCollapsedHorizontal = false;
+            $scope.mails = mailboxService.query(function () {});
         }
     }
 });

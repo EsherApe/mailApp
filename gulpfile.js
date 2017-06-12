@@ -14,6 +14,7 @@ var gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
+    cleanCSS = require('gulp-clean-css'),
     //Other
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -147,9 +148,10 @@ gulp.task('style:build', function () {
 
 gulp.task('concatPlug:css', function () {
     return gulp.src([
-
+        'bower_components/angular-busy/dist/angular-busy.css'
     ])
         .pipe(concat('components.min.css'))
+        .pipe(cleanCSS())
         .pipe(gulp.dest(path.build.css));
 });
 
@@ -158,8 +160,8 @@ gulp.task('concatPlug:js', function () {
         'bower_components/angular/angular.js',
         'bower_components/angular-resource/angular-resource.min.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-        'bower_components/angular-ui-router/release/angular-ui-router.js'
-
+        'bower_components/angular-ui-router/release/angular-ui-router.js',
+        'bower_components/angular-busy/dist/angular-busy.js'
     ])
         .pipe(concat('components.min.js'))
         .pipe(uglify().on('error', function(e){

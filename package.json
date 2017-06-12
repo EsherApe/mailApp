@@ -9,9 +9,11 @@
   "devDependencies": {
     "autoprefixer": "*",
     "browser-sync": "*",
+    "clean-css": "^4.1.3",
     "gifsicle": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-clean-css": "^3.4.1",
     "gulp-concat": "*",
     "gulp-imagemin": "*",
     "gulp-ng-annotate": "^2.0.0",
