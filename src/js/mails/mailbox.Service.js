@@ -8,11 +8,6 @@
 mailApp.service("mailboxService", function ($http, $resource) {
     var mailboxService = this;
     mailboxService.mails = $resource('http://localhost:3000/messages/:id');
-    mailboxService.users = $resource('http://localhost:3000/users/:id', null,
-        {
-            update: {
-                method: 'PUT' // this method issues a PUT request
-            }
-        });
+    mailboxService.users = $resource('http://localhost:3000/users/:id');
     return mailboxService;
 });

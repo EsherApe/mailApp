@@ -6,7 +6,10 @@
  */
 
 mailApp.controller('userController', function($scope, mailboxService, $stateParams) {
-    $scope.user = mailboxService.users.get({id: $stateParams.id});
+    $scope.loader = mailboxService.users.get({id: $stateParams.id}, function (response) {
+        $scope.user = response;
+    });
+
     $scope.updateUser = function () {
 
         // mailboxService.users.update($scope.user, function () {
