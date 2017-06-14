@@ -24,6 +24,7 @@
     "gulp-watch": "*",
     "gulp.spritesmith": "*",
     "imagemin-pngquant": "*",
+    "lodash": "^4.17.4",
     "ngrok": "*",
     "rigger": "*",
     "rimraf": "*"

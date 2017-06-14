@@ -1,6 +1,12 @@
 <div class="panel panel-default" cg-busy="[mail]">
-    <div class="panel-heading">{{mail.title}}</div>
-    <div class="panel-body">
+    <div class="panel-heading"><h4>{{mail.title}}</h4></div>
+    <div class="panel-body" style="min-height: 300px;">
         {{mail.body}}
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-xs-6">Email: <a href="">{{user.email}}</a></div>
+            <div class="col-xs-6 text-right">Author: <a ui-sref="user({id: user.id})">{{user.name}}</a></div>
+        </div>
     </div>
 </div>

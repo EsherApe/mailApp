@@ -16,17 +16,29 @@ mailApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) 
     $locationProvider.html5Mode(true);
 
     $stateProvider
-        .state('mailbox', {
+        .state('mails', {
             url: '/',
-            templateUrl: '/views/mailbox/index.html',
-            controller: 'mailboxController',
-            title: 'mailbox'
+            templateUrl: '/views/mails/index.html',
+            controller: 'mailsController',
+            title: 'mails'
         })
         .state('mail', {
             url: '/mail/:id',
             templateUrl: '/views/mail/index.html',
             controller: 'mailController',
             title: 'mail'
+        })
+        .state('users', {
+            url: '/users',
+            templateUrl: '/views/users/index.html',
+            controller: 'usersController',
+            title: 'users'
+        })
+        .state('user', {
+            url: '/users/:id',
+            templateUrl: '/views/user/index.html',
+            controller: 'userController',
+            title: 'user'
         })
     ;
 

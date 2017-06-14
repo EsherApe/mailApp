@@ -1,9 +1,0 @@
-<div cg-busy="[loader]">
-    <div class="mail-list">
-        <div ng-repeat="mail in mails | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize" class="folded-letter-container">
-            <a ui-sref="mail({id: mail.id})" style="display: block;">{{mail.title}}</a>
-            <span class="glyphicons glyphicons-remove-sign"></span>
-        </div>
-    </div>
-    <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="pageSize"></ul>
-</div>

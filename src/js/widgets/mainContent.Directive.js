@@ -11,7 +11,10 @@ mailApp.directive('mainContent', function() {
     return {
         restrict: 'A',
         replace: true,
+        scope: {},
         templateUrl: template,
-        controller: function() {}
+        controller: function($scope) {
+
+        }
     }
 });

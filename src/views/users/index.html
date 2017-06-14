@@ -1,0 +1,10 @@
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="user in users">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <a ui-sref="user({id: user.id})" href="#">{{user.name}}</a>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-right"><a href="#">{{user.email}}</a></div>
+        </div>
+    </li>
+</ul>

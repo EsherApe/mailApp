@@ -11,7 +11,7 @@ mailApp.directive('navbar', function () {
         replace: true,
         scope: {},
         templateUrl: "/views/widgets/navbar.html",
-        controller: function () {
+        controller: function ($scope) {
 
         }
     } 

@@ -1,0 +1,23 @@
+<div cg-busy="[loader]">
+    <div class="mail-list">
+        <div ng-repeat="mail in mails | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize" class="folded-letter-container">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-xs-12">
+                    <h4 style="margin: 0;"><a ui-sref="mail({id: mail.id})">{{mail.title}}</a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <span>Email: </span>
+                    <a href="mailto:{{mail.userEmail}}">{{mail.userEmail}}</a>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <span>From: </span>
+                    <a href="/users/{{mail.userId}}">{{mail.userName}}</a>
+                </div>
+            </div>
+            <span class="glyphicons glyphicons-remove-sign"></span>
+        </div>
+    </div>
+    <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="pageSize"></ul>
+</div>

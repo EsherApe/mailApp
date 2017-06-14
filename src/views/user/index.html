@@ -1,0 +1,62 @@
+<div class="col-xs-12">
+    <div class="row">
+        <h1 style="margin: 0;">Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img src="{{user.picture}}" class="avatar img-circle" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <div class="alert alert-dismissable" ng-class="user.isActive ? 'alert-success' : 'alert-danger'">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-coffee"></i>
+                    <div>{{user.isActive ? 'user online!' : 'user offline!'}}</div>
+                </div>
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-value="user.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Company:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-value="user.company">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-value="user.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Phone:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-value="user.phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" value="Save Changes" ng-click="updateUser()">
+                            <span></span>
+                            <input type="reset" class="btn btn-default" value="Cancel" ng-click="cancelUpdate()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

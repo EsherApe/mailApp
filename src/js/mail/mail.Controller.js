@@ -6,5 +6,6 @@
  */
 
 mailApp.controller('mailController', function($scope, mailboxService, $stateParams) {
-    $scope.mail = mailboxService.get({id: $stateParams.id});
+    $scope.mail = mailboxService.mails.get({id: $stateParams.id});
+    $scope.user = mailboxService.users.get({id: $stateParams.id});
 });
