@@ -5,9 +5,11 @@
  * Date: 05.06.2017
  */
 
-mailApp.service("mailboxService", function ($http, $resource) {
+mailApp.service("mailboxService", function ($http, $resource, $localStorage) {
     var mailboxService = this;
+
     mailboxService.mails = $resource('http://localhost:3000/messages/:id');
     mailboxService.users = $resource('http://localhost:3000/users/:id');
+
     return mailboxService;
 });

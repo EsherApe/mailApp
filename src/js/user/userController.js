@@ -5,19 +5,21 @@
  * Date: 14.06.2017
  */
 
-mailApp.controller('userController', function($scope, mailboxService, $stateParams) {
+mailApp.controller('userController', function($scope, mailboxService, $stateParams, $localStorage, $http) {
     $scope.loader = mailboxService.users.get({id: $stateParams.id}, function (response) {
         $scope.user = response;
     });
 
     $scope.updateUser = function () {
 
-        // mailboxService.users.update($scope.user, function () {
-        //
-        // });
+        $http.post('http://posttestserver.com/post.php?dir=newFolder', {
+            headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        });
     };
 
     $scope.cancelUpdate = function () {
-        console.info('cancel');
+
     };
 });

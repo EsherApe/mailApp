@@ -9,7 +9,8 @@ var mailApp = angular.module('mailApp', [
     'ngResource',
     'ui.router',
     'ui.bootstrap',
-    'cgBusy'
+    'cgBusy',
+    'ngStorage'
 ]);
 
 mailApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {

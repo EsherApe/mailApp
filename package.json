@@ -28,5 +28,8 @@
     "ngrok": "*",
     "rigger": "*",
     "rimraf": "*"
+  },
+  "dependencies": {
+    "gulp-ng-annotate": "^2.0.0"
   }
 }
