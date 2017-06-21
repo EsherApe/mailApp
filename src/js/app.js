@@ -5,15 +5,28 @@
  * Date: 05.06.2017
  */
 
-var mailApp = angular.module('mailApp', [
+const mailApp = angular.module('mailApp', [
     'ngResource',
     'ui.router',
     'ui.bootstrap',
     'cgBusy',
-    'ngStorage'
+    'ngStorage',
+    //'ngMockE2E'
 ]);
 
-mailApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+mailApp.service('authRejector', function ($q, $injector) {
+   this.responseError = (rejection) => {
+        if(rejection.status === 401) {
+            $injector.get('$state').go('login');
+        }
+        return $q.reject(rejection);
+    }
+});
+
+mailApp.config(function ($httpProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+
+    $httpProvider.interceptors.push(('authRejector'));
+
     $locationProvider.html5Mode(true);
 
     $stateProvider
@@ -40,8 +53,28 @@ mailApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) 
             templateUrl: '/views/user/index.html',
             controller: 'userController',
             title: 'user'
-        })
-    ;
+        });
 
-    $urlRouterProvider.otherwise('/error');
+    $urlRouterProvider.otherwise('/');
+});
+
+mailApp.run(function ($http) {
+    // let template = /\/(views)\/\w+\/\w+(.html)/g;
+    //
+    // $httpBackend.whenGET(template).passThrough();
+    // $httpBackend.whenGET('/views/mails/index.html').passThrough();
+    // $httpBackend.whenGET('/views/widgets/sidebar.html').passThrough();
+    // let userObj = [{name: 'John'}];
+    // let mailsObj = [{title: 'Hello'}];
+    //
+    // $httpBackend.whenGET('/mails').respond(function () {
+    //     console.log('asdasdasdasda');
+    //     return [200, userObj];
+    // })
+    //
+    // $httpBackend.whenGET('/users').respond(function () {
+    //     console.log('asdasdasdasda');
+    //     return [200, userObj];
+    // })
+
 });

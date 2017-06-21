@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     //Server
     browserSync = require("browser-sync"),
@@ -20,13 +20,14 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     rigger = require('gulp-rigger'),
     rimraf = require('rimraf'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    babel = require('gulp-babel');
 
 
 //=================================================================
 
 
-var path = {
+const path = {
     build: {
         html: 'public/',
         php: 'public/api',
@@ -60,8 +61,8 @@ var path = {
 gulp.task('webserver', function () {
     browserSync({
         server: "./public"
-    }, function (err, bs) {
-        ngrok.connect(bs.options.get('port'), function (err, url) {
+    }, (err, bs) => {
+            ngrok.connect(bs.options.get('port'), function (err, url) {
         });
     });
 });
@@ -70,8 +71,8 @@ gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
-gulp.task('sprites:build', function() {
-    var spritesData = gulp.src(path.src.sprites)
+gulp.task('sprites:build', function () {
+    const spritesData = gulp.src(path.src.sprites)
         .pipe(spritesmith({
             imgName: '../images/sprites.png',
             cssName: '_sprites.scss',
@@ -123,6 +124,9 @@ gulp.task('php:build', function () {
 gulp.task('js:build', function () {
     return gulp.src(path.src.js)
         .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(ngAnnotate())
         .pipe(concat('script.min.js'))
         .pipe(uglify())
@@ -162,10 +166,11 @@ gulp.task('concatPlug:js', function () {
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
         'bower_components/angular-ui-router/release/angular-ui-router.js',
         'bower_components/angular-busy/dist/angular-busy.js',
-        'bower_components/ngstorage/ngStorage.js'
+        'bower_components/ngstorage/ngStorage.js',
+        'bower_components/angular-mocks/angular-mocks.js'
     ])
         .pipe(concat('components.min.js'))
-        .pipe(uglify().on('error', function(e){
+        .pipe(uglify().on('error', (e) => {
             console.log(e);
         }))
         .pipe(gulp.dest(path.build.js));
@@ -184,25 +189,25 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', function () {
-    watch([path.watch.html], function (event, cb) {
+    watch([path.watch.html], (event, cb) => {
         gulp.start('html:build');
     });
-    watch([path.watch.php], function (event, cb) {
+    watch([path.watch.php], (event, cb) => {
         gulp.start('php:build');
     });
-    watch([path.watch.style], function (event, cb) {
+    watch([path.watch.style], (event, cb) => {
         gulp.start('style:build');
     });
-    watch([path.watch.js], function (event, cb) {
+    watch([path.watch.js], (event, cb) => {
         gulp.start('js:build');
     });
-    watch([path.watch.sprites], function (event, cb) {
+    watch([path.watch.sprites], (event, cb) => {
         gulp.start('sprites:build');
     });
-    watch([path.watch.img], function (event, cb) {
+    watch([path.watch.img], (event, cb) => {
         gulp.start('image:build');
     });
-    watch([path.watch.fonts], function (event, cb) {
+    watch([path.watch.fonts], (event, cb) => {
         gulp.start('fonts:build');
     });
 });

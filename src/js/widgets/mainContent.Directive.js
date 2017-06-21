@@ -6,14 +6,14 @@
  */
 
 mailApp.directive('mainContent', function() {
-    var template = '/views/layouts/mailApp.html';
+    let template = '/views/layouts/mailApp.html';
 
     return {
         restrict: 'A',
         replace: true,
         scope: {},
         templateUrl: template,
-        controller: function($scope) {
+        controller: function() {
 
         }
     }

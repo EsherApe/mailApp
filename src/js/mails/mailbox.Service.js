@@ -6,7 +6,7 @@
  */
 
 mailApp.service("mailboxService", function ($http, $resource, $localStorage) {
-    var mailboxService = this;
+    let mailboxService = this;
 
     mailboxService.mails = $resource('http://localhost:3000/messages/:id');
     mailboxService.users = $resource('http://localhost:3000/users/:id');

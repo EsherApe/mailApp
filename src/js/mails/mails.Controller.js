@@ -6,8 +6,8 @@ mailApp.controller('mailsController', function ($scope, mailboxService, $timeout
             $scope.users = response;
 
             $scope.getUser = function () {
-                for(var i = 0; i < $scope.mails.length; i++) {
-                    for(var j = 0; j < $scope.users.length; j++) {
+                for(let i = 0; i < $scope.mails.length; i++) {
+                    for(let j = 0; j < $scope.users.length; j++) {
                         if ($scope.mails[i].userId === $scope.users[j].id) {
                             $scope.mails[i].userName = $scope.users[j].name;
                             $scope.mails[i].userEmail = $scope.users[j].email;

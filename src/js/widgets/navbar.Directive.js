@@ -9,10 +9,18 @@ mailApp.directive('navbar', function () {
     return {
         restrict: "E",
         replace: true,
-        scope: {},
+        scope: {
+            name: '@',
+            surname: '='
+        },
         templateUrl: "/views/widgets/navbar.html",
+        controllerAs: 'navbar',
+        bindToController: true,
         controller: function ($scope) {
-
+            this.num = 5;
+        },
+        link: function (scope, element, attrs, ctrl) {
+            console.log(ctrl.num)
         }
     } 
 });

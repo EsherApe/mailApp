@@ -12,11 +12,6 @@ mailApp.controller('userController', function($scope, mailboxService, $statePara
 
     $scope.updateUser = function () {
 
-        $http.post('http://posttestserver.com/post.php?dir=newFolder', {
-            headers : {
-                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        });
     };
 
     $scope.cancelUpdate = function () {

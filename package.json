@@ -8,11 +8,13 @@
   },
   "devDependencies": {
     "autoprefixer": "*",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "*",
     "clean-css": "^4.1.3",
     "gifsicle": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
+    "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^3.4.1",
     "gulp-concat": "*",
     "gulp-imagemin": "*",

@@ -8,5 +8,9 @@
 mailApp.controller('usersController', function ($scope, mailboxService) {
     $scope.loader = mailboxService.users.query(function (response) {
         $scope.users = response;
+
+        $scope.addUser = function() {
+
+        }
     })
 });

@@ -14,7 +14,7 @@ mailApp.directive('sidebar', function () {
             $scope.isNavCollapsed = true;
             $scope.isCollapsed = false;
             $scope.isCollapsedHorizontal = false;
-            $scope.mails = mailboxService.mails.query(function () {});
+            //$scope.mails = mailboxService.mails.query(function () {});
         }
     }
 });
